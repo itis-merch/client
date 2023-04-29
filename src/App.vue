@@ -1,5 +1,5 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import {RouterView} from 'vue-router'
 import SGHeader from './components/SGHeader.vue'
 import SGFooter from './components/SGFooter.vue'
 import SGSideBar from './components/SGSidebar.vue'
@@ -22,16 +22,18 @@ import SGSideBar from './components/SGSidebar.vue'
   <footer>
     <SGFooter />
   </footer> -->
-  <div class="flex flex-col">
-    <SGHeader class="mt-6 fixed w-full" />
-    <div class="main-content flex flex-1">
-      <SGSideBar class="mt-24 fixed"/>
+  <!--  <div class="flex flex-col">-->
+  <SGHeader class="mb-[92px] w-full fixed top-0 z-10"/>
+  <main class="main-content flex flex-1">
+    <SGSideBar class="fixed top-[188px] left-[112px]" />
+    <div class="top-[188px] left-[400px]">
       <div class="dynamic-content">
-        <RouterView />
+        <RouterView/>
       </div>
+      <SGFooter/>
     </div>
-    <SGFooter />
-  </div>
+  </main>
+  <!--  </div>-->
 </template>
 
 <style scoped>
