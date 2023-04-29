@@ -2,6 +2,7 @@
 </script>
 
 <template>
-  <main>
-  </main>
+  <div>
+    <h1>Main content</h1>
+  </div>
 </template>

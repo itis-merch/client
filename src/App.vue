@@ -1,39 +1,53 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import SGHeader from './components/SGHeader.vue'
+import SGFooter from './components/SGFooter.vue'
+import SGSideBar from './components/SGSidebar.vue'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+  <!-- <header class="mt-5">
+    <SGHeader />
   </header>
 
-  <RouterView />
+  <main>
+    <div>
+      <SGSideBar />
+    </div>
+    <div>
+      <RouterView />
+    </div>
+  </main>
+
+  <footer>
+    <SGFooter />
+  </footer> -->
+  <div class="flex flex-col">
+    <SGHeader class="mt-6 fixed w-full" />
+    <div class="main-content flex flex-1">
+      <SGSideBar class="mt-24 fixed"/>
+      <div class="dynamic-content">
+        <RouterView />
+      </div>
+    </div>
+    <SGFooter />
+  </div>
 </template>
 
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
   max-height: 100vh;
-}
+} */
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+/* nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
-}
+} */
 
-nav a.router-link-exact-active {
+/* nav a.router-link-exact-active {
   color: var(--color-text);
 }
 
@@ -49,9 +63,9 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
-}
+} */
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -76,5 +90,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>
