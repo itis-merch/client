@@ -1,8 +1,8 @@
 <template>
 	<transition :name="transitionEffect">
 		<div
-			class="carousel-item"
-			v-show="currentSlide === index"
+				class="carousel-item"
+				v-show="currentSlide === index"
 		>
 			<img :src="slide" alt="Photo"/>
 		</div>
@@ -35,8 +35,8 @@ export default {
 }
 
 img {
-	width: 500px;
-	height: 270px;
+	width: 100%;
+	height: 590px;
 }
 
 .slide-in-enter-active,
