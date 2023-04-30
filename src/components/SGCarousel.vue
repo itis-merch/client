@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import SGCarouselItem from "@/components/SGCarouselItem.vue";
-import SGCarouselIndicators from "@/components/SGCarouselIndicators.vue";
+import SGCarouselItem from "./SGCarouselItem.vue";
+import SGCarouselIndicators from "./SGCarouselIndicators.vue";
 export default {
 	components: {
 		SGCarouselItem,
