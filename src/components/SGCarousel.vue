@@ -47,18 +47,18 @@ export default {
 		},
 		prev(step = -1) {
 			const index =
-				this.currentSlide > 0
-					? this.currentSlide + step
-					: this.slides.length - 1;
+					this.currentSlide > 0
+							? this.currentSlide + step
+							: this.slides.length - 1;
 			this.setCurrentSlide(index);
 			this.direction = "left";
 			this.startSlideTimer();
 		},
 		_next(step = 1) {
 			const index =
-				this.currentSlide < this.slides.length - 1
-					? this.currentSlide + step
-					: 0;
+					this.currentSlide < this.slides.length - 1
+							? this.currentSlide + step
+							: 0;
 			this.setCurrentSlide(index);
 			this.direction = "right";
 		},
@@ -100,8 +100,8 @@ export default {
 }
 .carousel-inner {
 	position: relative;
-	width: 500px;
-	height: 280px;
+	width: 100%;
+	height: 600px;
 	overflow: hidden;
 }
 </style>
