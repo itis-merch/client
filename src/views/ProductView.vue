@@ -1,5 +1,5 @@
 <template>
-  <main class="max-w-[1200px] p-4 flex">
+  <main class="max-w-[1200px] p-4 flex ml-8">
     <div class="w-[65%] relative">
       <img :src="images[0]" class="w-96" alt="">
     </div>
@@ -36,7 +36,7 @@ export default {
         'https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:1400/output=quality:50/no_metadata/compress/DA7sCaSQTKyldZjDTrQw'
       ],
       name: 'Nowhereman Tee Red',
-      description: 'Nowhereman red t-shirt by Number (N)ine.\nSize Men\'s / US S / EU 44-46 / 1\nColor Red\nCondition New',
+      description: 'Nowhereman red t-shirt by Number (N)ine.\nSize Men\'s / US S / EU 44-46 / 1\nColor Red\nCondition New\nMade in Japan\n10/10 new w/ tags in the package',
       price: '69.90',
       amount: 22
     }
