@@ -1,15 +1,19 @@
 <template>
 	<main class="max-w-[3000px] p-4 ml-8">
 		<div class="text-2xl font-bold">Your orders</div>
-		<div class="products pt-5">
-			<div class="product" v-for="product in products" v-bind:key="product">
-				<div class="flex flex-row min-w-full">
-					<div class="text-lg pr-[5%] w-[60%]">{{ product.name }}</div>
-					<div class="text-lg">{{ product.amount }}</div>
-					<div class="font-bold">${{ product.price }}</div>
-				</div>
-            </div>
-		</div>
+		<table class="table-auto min-w-full">
+			<div class="products pt-5">
+				<tbody class="min-w-full">
+					<div class="product" v-for="product in products" v-bind:key="product">
+						<tr class="w-full">
+							<td class="text-lg pr-10 w-[50%]">{{ product.name }}</td>
+							<td class="text-lg">{{ product.amount }}</td>
+							<td class="font-bold">${{ product.price }}</td>
+						</tr>
+					</div>
+				</tbody>
+			</div>
+		</table>
 	</main>
   </template>
   
