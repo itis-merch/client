@@ -1,21 +1,13 @@
 <template>
 	<main class="max-w-[1200px] p-4 ml-8 mr-10 text">
 		<div class="text-2xl font-bold">Your orders</div>
-		<!-- <table class="table-fixed w-full"> -->
-			<div class="products pt-5 w-[80%]">
-					<div class="product w-full inline-table" v-for="product in products" v-bind:key="product">
-						<div class="text-lg float-left w-[70%] pr-[5%]">{{ product.name }}</div>
-						<div class="text-lg text-right float-left"> {{ product.amount }}</div>
-						<div class="font-bold text-base float-right">${{ product.price }}</div>
-						<!-- <div style="width: 1000%;">
-				<div style="float: left; width: 100px; height: 100px;">content</div>
-				<div style="float: left; width: 100px; height: 100px;">content</div>
-				<div style="float: left; width: 100px; height: 100px;">content++</div>
-			</div> -->
-					</div>
-			</div>
-			
-		<!-- </table> -->
+		<div class="products pt-5 w-[80%]">
+				<div class="product w-full inline-table" v-for="product in products" v-bind:key="product">
+					<div class="text-lg float-left w-[80%]"><div class="text-lg max-w-[40%] float-left overflow-ellipsis overflow-hidden whitespace-nowrap">{{ product.name }}</div></div>
+					<div class="text-lg text-right float-left"> {{ product.amount }}</div>
+					<div class="font-bold text-base float-right">${{ product.price }}</div>
+				</div>
+		</div>
 	</main>
   </template>
   
