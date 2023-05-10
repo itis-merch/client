@@ -1,19 +1,21 @@
 <template>
-	<main class="max-w-[3000px] p-4 ml-8">
+	<main class="max-w-[1200px] p-4 ml-8 mr-10 text">
 		<div class="text-2xl font-bold">Your orders</div>
-		<table class="table-auto min-w-full">
-			<div class="products pt-5">
-				<tbody class="min-w-full">
-					<div class="product" v-for="product in products" v-bind:key="product">
-						<tr class="w-full">
-							<td class="text-lg pr-10 w-[50%]">{{ product.name }}</td>
-							<td class="text-lg">{{ product.amount }}</td>
-							<td class="font-bold">${{ product.price }}</td>
-						</tr>
+		<!-- <table class="table-fixed w-full"> -->
+			<div class="products pt-5 w-[80%]">
+					<div class="product w-full inline-table" v-for="product in products" v-bind:key="product">
+						<div class="text-lg float-left w-[70%] pr-[5%]">{{ product.name }}</div>
+						<div class="text-lg text-right float-left"> {{ product.amount }}</div>
+						<div class="font-bold text-base float-right">${{ product.price }}</div>
+						<!-- <div style="width: 1000%;">
+				<div style="float: left; width: 100px; height: 100px;">content</div>
+				<div style="float: left; width: 100px; height: 100px;">content</div>
+				<div style="float: left; width: 100px; height: 100px;">content++</div>
+			</div> -->
 					</div>
-				</tbody>
 			</div>
-		</table>
+			
+		<!-- </table> -->
 	</main>
   </template>
   
@@ -38,7 +40,7 @@
 					category_id: 1,
 					name: 'Number (N)ine Destroyed Tee',
 					description: 'This t-shirt has a thrashed vintage look with an illusion of dirt scattering across the shirt.',
-					price: '606,95',
+					price: '0',
 					amount:5,
 					images: [
 						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-1-min_2.jpg?v=1659901749',
@@ -78,7 +80,7 @@
 					name: 'Number (N)ine Destroyed Tee dcjgdcudcdgcduvdc',
 					description: 'This t-shirt has a thrashed vintage look with an illusion of dirt scattering across the shirt.',
 					price: '606,95',
-					amount: 17,
+					amount: 17444,
 					images: [
 						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-1-min_2.jpg?v=1659901749',
 						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-4-min_2.jpg?v=1659901749',
@@ -90,7 +92,7 @@
 					category_id: 1,
 					name: 'Number (N)ine Destroyed Tee',
 					description: 'This t-shirt has a thrashed vintage look with an illusion of dirt scattering across the shirt.',
-					price: '606,95',
+					price: '60,95',
 					amount: 22,
 					images: [
 						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-1-min_2.jpg?v=1659901749',
