@@ -1,13 +1,14 @@
 <template>
-	<main class="max-w-[1200px] p-4 ml-8 mr-10 pb-12">
-		<div class="text-2xl font-bold">Your orders</div>
-		<div class="products pt-5 w-[80%]">
+	<main class="max-w-[1200px] ml-16 mr-10 pb-12 min-h-[400px]">
+		<div class="text-2xl font-bold sg-logo-text">Your orders</div>
+		<div class="products pt-5 w-[80%]" v-if="products.length > 0">
 				<div class="product w-full inline-table" v-for="product in products" v-bind:key="product">
 					<div class="text-lg float-left w-[80%]"><div class="text-lg max-w-[40%] float-left overflow-ellipsis overflow-hidden whitespace-nowrap">{{ product.name }}</div></div>
 					<div class="text-lg text-right float-left"> {{ product.amount }}</div>
 					<div class="font-bold text-base float-right">${{ product.price }}</div>
 				</div>
 		</div>
+		<p class="mt-4 text-base " v-else>You have no orders yet. Continue shopping.</p>
 	</main>
   </template>
   
