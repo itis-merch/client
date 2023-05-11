@@ -1,5 +1,5 @@
 <template>
-	<main class="max-w-[1200px] p-4 ml-8 mr-10 text">
+	<main class="max-w-[1200px] p-4 ml-8 mr-10 pb-12">
 		<div class="text-2xl font-bold">Your orders</div>
 		<div class="products pt-5 w-[80%]">
 				<div class="product w-full inline-table" v-for="product in products" v-bind:key="product">
