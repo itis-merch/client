@@ -1,10 +1,10 @@
 <template>
-	<div class="main">
+	<div class="main ml-16 min-h-[400px]">
 		<div>
-			<p class="registration-text">
-				Registration via KPFU
-			</p>
-			<form class="registration-form">
+			<h1 class="sg-logo-text text-2xl">
+				Registration
+			</h1>
+			<form class="registration-form mt-5">
 				<input
 					v-model="email"
 					class="mt-5 p-2"
@@ -22,7 +22,7 @@
 				<input type="submit" class="bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Register">
 			</form>
 		</div>
-		<div class="ml-40 mt-12">
+		<div class="ml-44 mt-16">
 			<svg
 				class="mr-1"
 				width="145"
