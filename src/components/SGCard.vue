@@ -9,7 +9,7 @@ defineProps({
 
 <template>
 	<card class="">
-		<div class="bg-stone-200 w-52 h-68 py-2 rounded hover:bg-stone-50 active:bg-stone-50 transition duration-700 ">
+		<div class="bg-stone-200 h-68 py-2 rounded hover:bg-stone-50 active:bg-stone-50 transition duration-700 flex flex-col items-center">
 			<div class="bg-white w-48 h-44 mr-2 ml-2 rounded p-12">
 				<img :src="image" alt="" srcset="">
 			</div>
