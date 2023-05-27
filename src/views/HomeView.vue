@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-col">
-        <!-- <SGCarousel :slides="images" class="mb-10 mx-10"/> -->
+        <SGCarousel :slides="images" class="mb-10"/>
         <div class="new-arrivals">
             <h1 class="font-bold">New Arrivals</h1>
-            <div class="products grid grid-cols-3">
-                <div class="product" v-for="product in products" v-bind:key="product">
+            <div class="products grid grid-cols-4">
+                <div class="product mt-5" v-for="product in products" v-bind:key="product">
                     <SGCard :title="product.title" :description="product.description" :image="product.images[0]" :price="product.price" />
                 </div>
             </div>
