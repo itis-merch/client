@@ -7,7 +7,7 @@
       <div>
         <h1 class="font-bold text-lg">{{ name }}</h1>
         <p class="mt-5">
-          <pre class="w-[500px] whitespace-pre-wrap text-justify  ">{{ description }}</pre>
+          <pre class="w-[500px] whitespace-pre-wrap text-justify">{{ description }}</pre>
         </p>
       </div>
       <div class="mt-5">

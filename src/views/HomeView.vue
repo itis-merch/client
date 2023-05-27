@@ -1,11 +1,11 @@
 <template>
     <div class="flex flex-col">
-        <SGCarousel :slides="images" class="mb-10"/>
+        <!-- <SGCarousel :slides="images" class="mb-10"/> -->
         <div class="new-arrivals">
             <h1 class="font-bold">New Arrivals</h1>
             <div class="products grid grid-cols-4 gap-[20px]">
                 <div class="product mt-5" v-for="product in products" v-bind:key="product">
-                    <SGCard :title="product.title" :description="product.description" :image="product.images[0]" :price="product.price" />
+                    <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />
                 </div>
             </div>
         </div>
@@ -15,10 +15,38 @@
 <script>
 import SGCarousel from '../components/SGCarousel.vue'
 import SGCard from '../components/SGCard.vue';
+import axios from 'axios';
 
 export default {
+	mounted() {
+		try {
+			axios.get(this.baseUrl + "products")
+			.then((response) => {
+				console.log(response.data[0]);
+				this.products = [...response.data];
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	},
+	methods: {
+		formatText(text, maxLength) {
+			let formattedText;
+
+			if (text.length > maxLength) {
+				formattedText = text.slice(0, maxLength) + '...';
+			} else {
+				return text;
+			}
+
+			return formattedText;
+		}
+	},
 	data() {
 		return {
+			baseUrl: 'http://45.9.73.210:8080/api/v1/',
+			products: []
+			/*
 			images: [
 				'https://sun9-8.userapi.com/impg/l863UxfDxhpsUjNye_opPQWk2Dgs0TqybCQ3ag/scsDue1T0eM.jpg?size=1728x2160&quality=95&sign=96f9b74fe23728dbb1b6f9a995a4ab62&type=album',
 				'https://sun9-73.userapi.com/impg/CPoUZrhsTKEMMS2DX653XQdl_7zWmCgYlbzwdw/jqD0pd0_fRg.jpg?size=1458x1458&quality=95&sign=b926f376bca4db733d288d35a09a0b06&type=album',
@@ -98,6 +126,7 @@ export default {
 					]
 				}
 			]
+			*/
 		}
 	},
 	components: {
