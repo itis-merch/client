@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col">
-        <SGCarousel :slides="images" class="mb-10 mx-10"/>
-        <div class="new-arrivals ">
+        <!-- <SGCarousel :slides="images" class="mb-10 mx-10"/> -->
+        <div class="new-arrivals">
             <h1 class="font-bold">New Arrivals</h1>
             <div class="products flex flex-row">
                 <div class="product" v-for="product in products" v-bind:key="product">

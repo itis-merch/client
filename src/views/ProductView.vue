@@ -7,7 +7,7 @@
       <div>
         <h1 class="font-bold text-lg">{{ name }}</h1>
         <p class="mt-5">
-          <pre class="w-[500px]">{{ description }}</pre>
+          <pre class="w-[500px] whitespace-pre-wrap text-justify  ">{{ description }}</pre>
         </p>
       </div>
       <div class="mt-5">
@@ -29,18 +29,14 @@ export default {
   },
   mounted() {
     try {
-      axios.get(this.baseUrl + this.$route.params.id, {
-        headers: {
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1MTE1MzI3LCJpYXQiOjE2ODUxMTQxMjd9.g44qtgwNW0ZadiqmeEkY5XbR2tHGZC54gNHZYMtg2zo'
-        }
-      })
+      axios.get(this.baseUrl + this.$route.params.id)
       .then((response) => {
         const data = response.data;
         console.log(data);
         this.images.push(data.image_urls[0]);
         this.name = data.name;
         this.price = data.price;
-        this.quantity = data.quantity;
+        this.amount = data.quantity;
         this.description = data.description;
       })
     } catch (error) {
