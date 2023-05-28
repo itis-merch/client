@@ -24,12 +24,23 @@ import SGSideBar from './components/SGSidebar.vue'
   </footer> -->
   <!--  <div class="flex flex-col">-->
   <SGHeader class="mb-[92px] w-full fixed top-0 z-10"/>
-  <main class="main-content flex flex-1">
-    <SGSideBar class="fixed top-[188px] left-[112px]" />
+  <!-- <main class="main-content flex flex-1 overflow-x-hidden h-screen ">
+    <SGSideBar class="fixed top-[188px] left-[140px]" />
     <div class="top-[188px] left-[400px] w-5/6">
       <div class="dynamic-content">
         <RouterView/>
       </div>
+      <SGFooter/>
+    </div>
+  </main> -->
+  <main class="container">
+    <div class="sidebar fixed ml-32 mt-52">
+      <SGSideBar/>
+    </div>
+    <div class="content mt-52">
+      <RouterView/>
+    </div>
+    <div class="footer">
       <SGFooter/>
     </div>
   </main>
@@ -37,6 +48,23 @@ import SGSideBar from './components/SGSidebar.vue'
 </template>
 
 <style scoped>
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sidebar content content"
+    "sidebar content content"
+    ". footer footer";
+}
+
+.footer { grid-area: footer; }
+
+.sidebar { grid-area: sidebar; }
+
+.content { grid-area: content; }
+
 /* header {
   line-height: 1.5;
   max-height: 100vh;

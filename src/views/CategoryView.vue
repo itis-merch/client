@@ -1,6 +1,5 @@
 <template>
     <div class="flex flex-col">
-        <SGCarousel :slides="images" class="mb-10"/>
         <div class="new-arrivals">
             <h1 class="font-bold">New Arrivals</h1>
             <div class="products grid grid-cols-4 gap-[20px]">
@@ -20,14 +19,14 @@ import axios from 'axios';
 export default {
     mounted() {
         try {
-            axios.get(this.baseUrl + "products")
+            axios.get(this.baseUrl + "category")
             .then((response) => {
-                console.log(response.data);for(var i = 0; i < response.data.length; i++){
-                    if(response.data[i].category_id === 1){
+                console.log(response.data[2]);
+                for(var i = 0; i < response.data.length; i++){
+                    if(response.data[i].category_id === this.$route.params.id){
                         this.products.push(response.data[i]);
                     }
                 }
-                // this.products = [...response.data];
             })
         } catch (error) {
             console.log(error);
