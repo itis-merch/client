@@ -19,7 +19,7 @@ import axios from 'axios';
 export default {
     mounted() {
         try {
-            axios.get(this.baseUrl + "category")
+            axios.get(this.baseUrl + "categories")
             .then((response) => {
                 console.log(response.data[2]);
                 for(var i = 0; i < response.data.length; i++){
