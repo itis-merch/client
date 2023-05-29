@@ -1,7 +1,8 @@
 <template>
     <div class="flex flex-col">
         <div class="new-arrivals">
-            <h1 class="font-bold">New Arrivals</h1>
+            <h1 class="font-bold text-lg">{{ name }}</h1>
+            <div class="text-justify py-5 text-base"> {{ description }}</div>
             <div class="products grid grid-cols-4 gap-[20px]">
                 <div class="product mt-5" v-for="product in products" v-bind:key="product">
                     <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />
@@ -19,14 +20,14 @@ import axios from 'axios';
 export default {
     mounted() {
         try {
-            axios.get(this.baseUrl + "categories")
+            axios.get(this.baseUrl + "categories/" + this.$route.params.id)
             .then((response) => {
-                console.log(response.data[2]);
-                for(var i = 0; i < response.data.length; i++){
-                    if(response.data[i].category_id === this.$route.params.id){
-                        this.products.push(response.data[i]);
-                    }
-                }
+                console.log(response.data);
+                // this.name = response.data[this.$route.params.id-1].name;
+                // this.description = response.data[this.$route.params.id-1].description;
+                // for(var i = 0; i < response.data[this.$route.params.id-1].products.length; i++){
+                //         this.products.push(response.data[this.$route.params.id-1].products[i]);
+                // }
             })
         } catch (error) {
             console.log(error);
@@ -49,7 +50,8 @@ export default {
         return {
             baseUrl: 'http://45.9.73.210:8080/api/v1/',
             products: [],
-            
+            name: 'Wrong category', 
+            description: '', 
             images: [
                 'https://sun9-8.userapi.com/impg/l863UxfDxhpsUjNye_opPQWk2Dgs0TqybCQ3ag/scsDue1T0eM.jpg?size=1728x2160&quality=95&sign=96f9b74fe23728dbb1b6f9a995a4ab62&type=album',
                 'https://sun9-73.userapi.com/impg/CPoUZrhsTKEMMS2DX653XQdl_7zWmCgYlbzwdw/jqD0pd0_fRg.jpg?size=1458x1458&quality=95&sign=b926f376bca4db733d288d35a09a0b06&type=album',

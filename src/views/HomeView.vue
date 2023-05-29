@@ -22,12 +22,13 @@ export default {
         try {
             axios.get(this.baseUrl + "products")
             .then((response) => {
-                console.log(response.data);for(var i = 0; i < response.data.length; i++){
-                    if(response.data[i].category_id === 1){
-                        this.products.push(response.data[i]);
-                    }
-                }
-                // this.products = [...response.data];
+                // console.log(response.data[1].category_id);
+                // console.log(response.data);for(var i = 0; i < response.data.length; i++){
+                //     if(response.data[i].category_id === 1){
+                //         this.products.push(response.data[i]);
+                //     }
+                // }
+                this.products = [...response.data];
             })
         } catch (error) {
             console.log(error);
