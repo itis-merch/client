@@ -4,7 +4,10 @@
 			<h1 class="sg-logo-text text-2xl">
 				Login
 			</h1>
-			<form class="login-form mt-5">
+			<form
+					@submit.prevent="auth"
+					class="login-form mt-5"
+			>
 				<input
 								v-model="email"
 								class="mt-5 p-2"
@@ -17,6 +20,7 @@
 								class="my-5 p-2"
 								type="password"
 								placeholder="Password"
+								pattern="\w{6,}"
 								required
 				>
 				<input type="submit" class="bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Login">
@@ -46,22 +50,38 @@
 
 <script>
 import SGButton from "@/components/SGButton.vue";
+import axios from "axios";
 
 export default {
-    components: {SGButton},
+    components: {},
     data() {
         return {
-            email: '',
-            password: '',
+					baseUrl: 'http://45.9.73.210:8080/api/v1/',
+					email: 'ivanwheel@gmail.com',
+					password: 'foobar',
+					jwt_token: ''
         }
     },
     methods: {
         auth() {
 					var data = JSON.stringify({
-						"email": this.email,
+						"email_address": this.email,
 						"password": this.password
           });
-					console.log(data);
+          console.log(data);
+					try {
+						axios.post(this.baseUrl + "auth/login", data, {
+              headers : {
+                "Content-Type": "application/json"
+							}
+						})
+							.then(function (response) {
+                console.log(response.data)
+							});
+
+					} catch (error) {
+						console.log(error);
+					}
         }
     }
 }
