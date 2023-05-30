@@ -4,19 +4,24 @@
 			<h1 class="sg-logo-text text-2xl">
 				Registration
 			</h1>
-			<form class="registration-form mt-5">
+			<form
+				@submit.prevent="auth"
+				class="registration-form mt-5"
+			>
 				<input
 					v-model="email"
 					class="mt-5 p-2"
 					type="text"
 					placeholder="Email"
-					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+					required
 				>
 				<input
 					v-model="password"
 					class="my-5 p-2"
 					type="password"
 					placeholder="Password"
+					pattern="\w{6,}"
 					required
 				>
 				<input type="submit" class="bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Register">
@@ -46,11 +51,13 @@
 
 <script>
 import SGButton from "@/components/SGButton.vue";
+import axios from "axios";
 
 export default {
   components: {SGButton},
   data() {
     return {
+      baseUrl: 'http://45.9.73.210:8080/api/v1/',
       email: '',
       password: '',
     }
@@ -58,10 +65,23 @@ export default {
   methods: {
     auth() {
       var data = JSON.stringify({
-        "email": this.email,
+				"first_name": "Ivan",
+				"last_name": "Ivanov",
+        "email_address": this.email,
         "password": this.password
       });
-      console.log(data);
+      try {
+				axios.post(this.baseUrl + "auth/register/", data, {
+          headers: {
+            'Content-Type': 'application/json'
+					}
+				})
+					.then(function (response) {
+            console.log(response.data);
+					})
+      } catch (error) {
+        console.log(error);
+			}
     }
   }
 }
