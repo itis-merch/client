@@ -9,6 +9,22 @@
 				class="registration-form mt-5"
 			>
 				<input
+					v-model="userName"
+					class="mt-5 p-2"
+					type="text"
+					placeholder="Name"
+					pattern="[a-zA-Z]{}"
+					required
+				>
+				<input
+					v-model="userSurname"
+					class="mt-5 p-2"
+					type="text"
+					placeholder="Surname"
+					pattern="[a-zA-Z]{}"
+					required
+				>
+				<input
 					v-model="email"
 					class="mt-5 p-2"
 					type="text"
@@ -58,6 +74,8 @@ export default {
   data() {
     return {
       baseUrl: 'http://45.9.73.210:8080/api/v1/',
+			userName: '',
+			userSurname: '',
       email: '',
       password: '',
     }
@@ -65,8 +83,8 @@ export default {
   methods: {
     auth() {
       var data = JSON.stringify({
-				"first_name": "Ivan",
-				"last_name": "Ivanov",
+				"first_name": this.userName,
+				"last_name": this.userSurname,
         "email_address": this.email,
         "password": this.password
       });

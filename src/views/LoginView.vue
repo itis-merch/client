@@ -57,8 +57,8 @@ export default {
     data() {
         return {
 					baseUrl: 'http://45.9.73.210:8080/api/v1/',
-					email: 'ivanwheel@gmail.com',
-					password: 'foobar',
+					email: '',
+					password: '',
 					jwt_token: ''
         }
     },
@@ -68,7 +68,6 @@ export default {
 						"email_address": this.email,
 						"password": this.password
           });
-          console.log(data);
 					try {
 						axios.post(this.baseUrl + "auth/login", data, {
               headers : {
@@ -77,8 +76,7 @@ export default {
 						})
 							.then(function (response) {
                 console.log(response.data)
-							});
-
+              });
 					} catch (error) {
 						console.log(error);
 					}
