@@ -22,12 +22,12 @@ export default {
         try {
             axios.get(this.baseUrl + "categories/" + this.$route.params.id)
             .then((response) => {
-                console.log(response.data);
-                // this.name = response.data[this.$route.params.id-1].name;
-                // this.description = response.data[this.$route.params.id-1].description;
-                // for(var i = 0; i < response.data[this.$route.params.id-1].products.length; i++){
-                //         this.products.push(response.data[this.$route.params.id-1].products[i]);
-                // }
+                // console.log(response.data);
+                this.name = response.data.name;
+                this.description = response.data.description;
+                for(var i = 0; i < response.data.products.length; i++){
+                        this.products.push(response.data.products[i]);
+                }
             })
         } catch (error) {
             console.log(error);
