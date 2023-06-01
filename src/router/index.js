@@ -4,6 +4,7 @@ import loginView from "@/views/LoginView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
 import AdminPanelView from '@/views/AdminPanelView.vue'
 import EditCategoryView from '@/views/EditCategoryView.vue'
+import AddCategoryView from '@/views/AddCategoryView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,9 +38,14 @@ const router = createRouter({
       component: AdminPanelView
     },
     {
-      path: '/admin-pane/category/:id',
+      path: '/admin-panel/category/:id',
       name: 'edit-category',
       component: EditCategoryView
+    },
+    {
+      path: '/admin-panel/category',
+      name: 'add-category',
+      component: AddCategoryView
     }
   ]
 })
