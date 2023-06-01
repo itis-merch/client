@@ -3,7 +3,10 @@
     <h1 class="sg-logo-text text-2xl">Admin panel</h1>
     <div class="categories-panel">
       <li v-for="category in categories" v-bind:key="category">
-        {{ category.name }}
+        <!-- {{ category.name }} -->
+        <RouterLink class="text-lg" id="edit-category" :to="{ name: 'edit-category', params: {id: category.id} }">
+          {{ category.name }}
+        </RouterLink>
       </li>
     </div>
   </div>
@@ -45,10 +48,7 @@ export default {
       })
       .then((response) => {
         this.categories = response.data;
-        // console.log(this.categories)
-        
         this.categories.forEach((category) => {
-          // console.log(category.products)
           category.products.forEach((product) => {
             this.products.push(product)
           })
