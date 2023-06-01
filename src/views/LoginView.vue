@@ -86,7 +86,7 @@ export default {
 									this.login = true
 									this.jwt_token = response.data.jwt_token
 									localStorage.setItem("login", true)
-									localStorage.setItem("jwt_token", this.jwt_token)
+									localStorage.setItem("jwtToken", this.jwt_token)
 									localStorage.setItem("userEmail", this.email)
 								}
               });

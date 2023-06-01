@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import loginView from "@/views/LoginView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
+import AdminPanelView from '@/views/AdminPanelView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/registration',
       name: 'registration',
       component: RegistrationView
+    },
+    {
+      path: '/admin-panel',
+      name: 'admin-panel',
+      component: AdminPanelView
     }
   ]
 })
