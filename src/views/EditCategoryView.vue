@@ -1,16 +1,15 @@
-import axios from 'axios';
 <template>
-  <div class="flex flex-row">
+  <div class="">
     <h4>Edit category</h4>
     <form>
       <div> <!-- form group -->
         <label>Category name</label>
-        <input type="text" v-model="name" required>
+        <input type="text" v-model="name">
       </div>
 
       <div> <!-- form group -->
         <label>Category description</label>
-        <input type="text" v-model="description" required>
+        <input type="text" v-model="description">
       </div>
       <button type="button" @click="editCategory">Submit</button>
     </form>

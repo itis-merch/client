@@ -2,10 +2,20 @@
   <div v-if="role==='ADMIN'">
     <h1 class="sg-logo-text text-2xl">Admin panel</h1>
     <div class="categories-panel">
+      <h4>Categories</h4>
       <li v-for="category in categories" v-bind:key="category">
         <!-- {{ category.name }} -->
         <RouterLink class="text-lg" id="edit-category" :to="{ name: 'edit-category', params: {id: category.id} }">
           {{ category.name }}
+        </RouterLink>
+      </li>
+    </div>
+    <div class="products-panel">
+      <h4>Products</h4>
+      <li v-for="product in products" v-bind:key="product">
+        <!-- {{ category.name }} -->
+        <RouterLink class="text-lg" id="edit-product" :to="{ name: 'edit-product', params: {id: product.id} }">
+          {{ product.name }}
         </RouterLink>
       </li>
     </div>
