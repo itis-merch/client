@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import SGButton from "@/components/SGButton.vue";
+
 import axios from "axios";
 
 export default {
@@ -57,29 +57,40 @@ export default {
     data() {
         return {
 					baseUrl: 'http://45.9.73.210:8080/api/v1/',
-					email: '',
-					password: '',
+					login: false,
+					email: 'ivanwheel@gmail.com',
+					password: 'foobar',
 					jwt_token: ''
         }
     },
-    methods: {
+	mounted() {
+			if (localStorage.getItem('login')) {
+				this.login = true
+				this.email = localStorage.getItem('userEmail')
+				this.jwt_token = localStorage.getItem('jwt_token')
+			}
+	},
+	methods: {
         auth() {
 					var data = JSON.stringify({
 						"email_address": this.email,
 						"password": this.password
           });
-					try {
 						axios.post(this.baseUrl + "auth/login", data, {
               headers : {
                 "Content-Type": "application/json"
 							}
 						})
-							.then(function (response) {
-                console.log(response.data)
+							.then((response) => {
+								if (response.status === 202) {
+									this.login = true
+									this.jwt_token = response.data.jwt_token
+									localStorage.setItem("login", true)
+									localStorage.setItem("jwt_token", this.jwt_token)
+									localStorage.setItem("userEmail", this.email)
+								}
               });
-					} catch (error) {
-						console.log(error);
-					}
+						console.log(this.jwt_token)
         }
     }
 }
