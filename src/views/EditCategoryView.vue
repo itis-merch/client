@@ -1,38 +1,43 @@
 <template>
   <div class="">
-    <h4>Edit category</h4>
-    <form>
-      <div> <!-- form group -->
+    <h4 class="text-xl pb-2">Edit category</h4>
+    <form class="max-w-[400px] flex flex-col gap-[20px]">
+      <div class="flex flex-col gap-[8px]">
+        <!-- form group -->
         <label>Category name</label>
-        <input type="text" v-model="name">
+        <input class="p-[8px]" style="color: gray" type="text" v-model="name" />
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]">
+        <!-- form group -->
         <label>Category description</label>
-        <input type="text" v-model="description">
+        <textarea class="p-[8px]" style="color: gray" v-model="description" />
       </div>
-      <button type="button" @click="editCategory">Submit</button>
+      <SGButton @click="editCategory">Edit</SGButton>
     </form>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
+import SGButton from '../components/SGButton.vue'
 
 export default {
+  components: {
+    SGButton
+  },
   data() {
     return {
       baseUrl: 'http://45.9.73.210:8080/api/v1/categories/',
       id: 0,
       name: '',
-      description: '',
+      description: ''
     }
   },
   mounted() {
     console.log(localStorage.getItem('jwtToken'))
     try {
-      axios.get(this.baseUrl + this.$route.params.id)
-      .then((response) => {
+      axios.get(this.baseUrl + this.$route.params.id).then((response) => {
         const category = response.data
         this.id = this.$route.params.id
         this.name = category.name
@@ -49,15 +54,17 @@ export default {
         description: this.description
       }
       try {
-        axios.post(this.baseUrl + this.id, updatedCategory, {
-          headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('jwtToken'),
-            'Content-Type': 'application/json'
-          }
-        }).then((response) => {
-          console.log(response.data)
-        })
-      } catch(error) {
+        axios
+          .post(this.baseUrl + this.id, updatedCategory, {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('jwtToken'),
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((response) => {
+            console.log(response.data)
+          })
+      } catch (error) {
         console.log(error)
       }
     }
