@@ -29,20 +29,25 @@
 				}
 			})
 			.then((response) => {
-				this.cart = response.data.products;
-				console.log(this.cart);
-				for(var i = 0; i < this.cart.length; i++) {
-					this.product.amount = this.cart[i].quantity;
-
-					axios.get(this.baseURL + "products/" + this.cart[i].product_id)
+				this.cart = response.data;
+				var product = {
+						name: '',
+						amount: 0,
+						totalPrice: 0
+					}
+				for(var i = 0; i < this.cart.products.length; i++) {
+					product.amount = this.cart.products[i].quantity;
+					console.log(product.amount)
+					axios.get(this.baseURL + "products/" + this.cart.products[i].product_id)
 					.then((response) => {
 						const data = response.data;
-						this.product.name = data.name;
-						this.product.totalPrice = data.price * this.product.amount;
+						product.name = data.name;
+						console.log(data.name, data.price, data.price * product.amount)
+						product.totalPrice = data.price * product.amount;
+						this.products.push(product)
 					})
-
-					this.products.push(this.product);
 				}
+				console.log(this.products);
 			})
 		} catch(error) {
 			console.log(error);
@@ -55,7 +60,7 @@
 	data() {
 	  return {
 
-		jwtToken: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1NjkyNzAzLCJpYXQiOjE2ODU2OTE1MDN9.LA24JVmG4AK4LiVmIriB-MmzTD_RAw8CKDwRoJSnUmE',
+		jwtToken: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1Njk2NzA4LCJpYXQiOjE2ODU2OTU1MDh9.dQ_e6ZsfN56eq0MeSCQGoyHXIWM8TE9EHB3ZiZsb30g',
 		baseURL: 'http://45.9.73.210:8080/api/v1/',
 		cart: null,
 		images: [
@@ -132,12 +137,7 @@
 		// 			]
 		// 		}
 		// 	]
-		products: [], 
-		product: {
-			name: '',
-			amount: 0, 
-			totalPrice: 0
-		}
+		products: []
 	  }
 	}
   }
