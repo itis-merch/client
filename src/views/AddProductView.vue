@@ -1,46 +1,50 @@
 <template>
-  <div class="flex flex-row">
-    <h4>Add product</h4>
-    <form>
-      <div> <!-- form group -->
+  <div class="">
+    <h4 class="text-xl pb-2">Add product</h4>
+    <form class="max-w-[400px] flex flex-col gap-[20px]">
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Product name</label>
-        <input type="text" v-model="name" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="name" required>
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Product description</label>
-        <input type="text" v-model="description" required>
+        <textarea class="p-[8px]" style="color: gray" type="text" v-model="description" required/>
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Product price</label>
-        <input type="text" v-model="price" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="price" required>
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Product quantity</label>
-        <input type="text" v-model="quantity" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="quantity" required>
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Product available</label>
-        <input type="text" v-model="available" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="available" required>
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Product category</label>
-        <input type="text" v-model="categoryId" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="categoryId" required>
       </div>
 
-      <button type="button" @click="addProduct">Submit</button>
+      <SGButton @click="addProduct">Add</SGButton>
     </form>
   </div>
 </template>
 
 <script>
 import axios from "axios"
+import SGButton from '../components/SGButton.vue'
 
 export default {
+  components: {
+    SGButton
+  },
   data() {
     return {
       baseUrl: 'http://45.9.73.210:8080/api/v1/products/',

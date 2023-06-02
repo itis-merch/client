@@ -1,40 +1,44 @@
 <template>
   <div class="">
-    <h4>Edit product</h4>
-    <form>
-      <div>
+    <h4 class="text-xl pb-2">Edit product</h4>
+    <form class="max-w-[400px] flex flex-col gap-[20px]">
+      <div class="flex flex-col grap-[8px]">
         <label>Product name</label>
-        <input type="text" v-model="name">
+        <input class="p-[8px]" style="color: gray" type="text" v-model="name">
       </div>
-      <div>
+      <div class="flex flex-col grap-[8px]">
         <label>Product description</label>
-        <input type="text" v-model="description">
+        <textarea class="p-[8px]" style="color: gray" type="text" v-model="description"/>
       </div>
-      <div>
+      <div class="flex flex-col grap-[8px]">
         <label>Product price</label>
-        <input type="text" v-model="price">
+        <input class="p-[8px]" style="color: gray" type="text" v-model="price">
       </div>
-      <div>
+      <div class="flex flex-col grap-[8px]">
         <label>Product quantity</label>
-        <input type="text" v-model="quantity">
+        <input class="p-[8px]" style="color: gray" type="text" v-model="quantity">
       </div>
-      <div>
+      <div class="flex flex-col grap-[8px]">
         <label>Product available</label>
-        <input type="text" v-model="available">
+        <input class="p-[8px]" style="color: gray" type="text" v-model="available">
       </div>
-      <div>
+      <div class="flex flex-col grap-[8px]">
         <label>Product category ID</label>
-        <input type="text" v-model="categoryID">
+        <input class="p-[8px]" style="color: gray" type="text" v-model="categoryID">
       </div>
-      <button type="button" @click="editProduct">Submit</button>
+      <SGButton @click="editProduct">Edit</SGButton>
     </form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SGButton from '../components/SGButton.vue'
 
 export default {
+  components: {
+    SGButton
+  },
   data() {
     return {
       baseUrl: 'http://45.9.73.210:8080/api/v1/products/',

@@ -1,25 +1,29 @@
 <template>
-  <div class="flex flex-row">
-    <h4>Add category</h4>
-    <form>
-      <div> <!-- form group -->
+  <div class="">
+    <h4 class="text-xl pb-2">Add category</h4>
+    <form class="max-w-[400px] flex flex-col gap-[20px]">
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Category name</label>
-        <input type="text" v-model="name" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="name" required>
       </div>
 
-      <div> <!-- form group -->
+      <div class="flex flex-col gap-[8px]"> <!-- form group -->
         <label>Category description</label>
-        <input type="text" v-model="description" required>
+        <input class="p-[8px]" style="color: gray" type="text" v-model="description" required>
       </div>
-      <button type="button" @click="addCategory">Submit</button>
+      <SGButton @click="addCategory">Add</SGButton>
     </form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SGButton from '../components/SGButton.vue'
 
 export default {
+  components: {
+    SGButton
+  },
   data() {
     return {
       baseUrl: 'http://45.9.73.210:8080/api/v1/categories/',
