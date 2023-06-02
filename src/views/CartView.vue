@@ -13,45 +13,44 @@
 		</div>
 		<p class="text-base mt-5" v-else>You have no items in your cart. Continue shopping.</p>
 	</main>
-  </template>
+</template>
   
-  <script>
-	import SGButton from '../components/SGButton.vue'
-	import axios from 'axios'
+<script>
+import SGButton from '../components/SGButton.vue'
+import axios from 'axios'
   
-  export default {
-	mounted() {
-		try {
-			
-			axios.get(this.baseURL + "cart", {
+export default {
+		async mounted() {
+			try {
+			await axios.get(this.baseURL + "cart", {
 				headers: {
 					Authorization: 'Bearer ' + this.jwtToken
 				}
 			})
-			.then((response) => {
-				this.cart = response.data;
-				var product = {
-						name: '',
-						amount: 0,
-						totalPrice: 0
-					}
-				for(var i = 0; i < this.cart.products.length; i++) {
-					product.amount = this.cart.products[i].quantity;
-					console.log(product.amount)
-					axios.get(this.baseURL + "products/" + this.cart.products[i].product_id)
+			.then(async (response) => {
+				this.cart = response.data
+				for (let i = 0; i < this.cart.products.length; i++) {
+          const product = {
+					  name: '',
+					  amount: 0,
+					  totalPrice: 0
+				  }
+					product.amount = this.cart.products[i].quantity
+					await axios.get(this.baseURL + "products/" + this.cart.products[i].product_id)
 					.then((response) => {
-						const data = response.data;
-						product.name = data.name;
-						console.log(data.name, data.price, data.price * product.amount)
-						product.totalPrice = data.price * product.amount;
+						product.name = response.data.name
+						product.totalPrice = response.data.price * product.amount
 						this.products.push(product)
+					}).catch((error) => {
+						console.log(error)
 					})
 				}
-				console.log(this.products);
 			})
 		} catch(error) {
 			console.log(error);
 		}
+
+    // console.log(this.products)
 	},
 
 	components: {
@@ -60,7 +59,7 @@
 	data() {
 	  return {
 
-		jwtToken: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1Njk2NzA4LCJpYXQiOjE2ODU2OTU1MDh9.dQ_e6ZsfN56eq0MeSCQGoyHXIWM8TE9EHB3ZiZsb30g',
+		jwtToken: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1Njk4MDUyLCJpYXQiOjE2ODU2OTY4NTJ9.ODo9h-7CVyodo4Wc6DZSgxFgTJUT1gKSvzkP9hEiOsM',
 		baseURL: 'http://45.9.73.210:8080/api/v1/',
 		cart: null,
 		images: [
