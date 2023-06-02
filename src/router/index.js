@@ -6,6 +6,7 @@ import AdminPanelView from '@/views/AdminPanelView.vue'
 import EditCategoryView from '@/views/EditCategoryView.vue'
 import AddCategoryView from '@/views/AddCategoryView.vue'
 import EditProductView from '@/views/EditProductView.vue'
+import AddProductView from '@/views/AddProductView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,6 +53,11 @@ const router = createRouter({
       path: '/admin-panel/product/:id',
       name: 'edit-product',
       component: EditProductView
+    },
+    {
+      path: '/admin-panel/product',
+      name: 'add-product',
+      component: AddProductView
     }
   ]
 })
