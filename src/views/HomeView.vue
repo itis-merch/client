@@ -1,4 +1,5 @@
 <template>
+	
     <div class="flex flex-col">
         <SGCarousel :slides="images" class="mb-10 mx-10"/>
         <div class="new-arrivals ">
@@ -85,7 +86,6 @@ export default {
 						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-2-min_2.jpg?v=1659901749'
 					]
 				},
-				
 			]
 		}
 	},

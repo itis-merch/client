@@ -25,7 +25,7 @@ import SGSideBar from './components/SGSidebar.vue'
   <!--  <div class="flex flex-col">-->
   <SGHeader class="mb-[92px] w-full fixed top-0 z-10"/>
   <main class="main-content flex flex-1">
-    <SGSideBar class="fixed top-[188px] left-[112px]" />
+    <SGSideBar class="fixed top-[188px] left-[112px]"/>
     <div class="top-[188px] left-[400px] w-[76.5%]">
       <div class="dynamic-content">
         <RouterView/>
