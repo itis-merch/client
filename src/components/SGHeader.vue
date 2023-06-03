@@ -56,7 +56,7 @@
                 >Bag</router-link
               >
             </li>
-            <li><router-link to="/" class="text-stone-950 sg-nav-link">Orders</router-link></li>
+            <li><router-link to="/orders" class="text-stone-950 sg-nav-link">Orders</router-link></li>
           </ul>
         </nav>
       </div>

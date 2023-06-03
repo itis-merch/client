@@ -1,4 +1,5 @@
 <template>
+	
     <div class="flex flex-col">
         <SGCarousel :slides="images" class="mb-10"/>
         <div class="new-arrivals">
