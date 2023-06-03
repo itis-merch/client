@@ -1,4 +1,5 @@
 <template>
+	
     <div class="flex flex-col">
         <SGCarousel :slides="images" class="mb-10 mx-10"/>
         <div class="new-arrivals ">
@@ -25,18 +26,6 @@ export default {
 				'https://sun7-7.userapi.com/impg/83lhmRPgYPYC7uoKjJPu2QVjInbFr5pngNxz1w/GW435H0PdyE.jpg?size=1352x1352&quality=95&sign=6e394fb00eafcae2d8df871dcc46f249&type=album'
 			],
 			products: [
-				{
-					id: 1,
-					category_id: 1,
-					name: 'Number (N)ine Destroyed Tee',
-					description: 'This t-shirt has a thrashed vintage look with an illusion of dirt scattering across the shirt.',
-					price: '606,95',
-					images: [
-						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-1-min_2.jpg?v=1659901749',
-						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-4-min_2.jpg?v=1659901749',
-						'https://cdn.shopify.com/s/files/1/0614/0972/2528/products/NN-DESTROYED-TEE-2-min_2.jpg?v=1659901749'
-					]
-				},
 				{
 					id: 1,
 					category_id: 1,
