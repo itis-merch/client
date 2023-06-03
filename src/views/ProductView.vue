@@ -13,7 +13,7 @@
       <div class="mt-5">
         <p class="font-bold">${{ price }}</p>
         <!-- <SGButton v-if="amount">Add to cart</SGButton> -->
-        <SGButton class="mt-5" :available="amount > 0" alt-text="Out of stock">Add to cart</SGButton>
+        <SGButton @click="addToCart" class="mt-5" :available="amount > 0" alt-text="Out of stock">Add to cart</SGButton>
       </div>
     </div>
   </main>
@@ -26,6 +26,23 @@ import SGButton from '../components/SGButton.vue'
 export default {
   components: {
     SGButton
+  },
+  methods: {
+    addToCart() {
+      console.log(this.jwtToken)
+      const shoppingCartItem = {
+        quantity: 1,
+        product_id: this.$route.params.id
+      }
+      axios.post('http://45.9.73.210:8080/api/v1/cart/add', shoppingCartItem, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": 'Bearer ' + this.jwtToken
+        }
+      }).then((response) => {
+        console.log(response)
+      })
+    }
   },
   mounted() {
     try {
@@ -50,7 +67,8 @@ export default {
       name: '',
       description: '',
       price: '',
-      amount: 0
+      amount: 0,
+      jwtToken: localStorage.getItem('jwtToken')
     }
   }
 }

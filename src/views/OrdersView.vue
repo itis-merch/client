@@ -19,7 +19,7 @@
 		data() {
 			return {
 				baseUrl: "http://45.9.73.210:8080/api/v1/",
-				jwt_token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1NzI2MDgyLCJpYXQiOjE2ODU3MjQ4ODJ9.SofnMfGTTodoEHeo0QLc2xuzUAq1CXysqJ8Zq7CSE0c",
+				jwt_token: localStorage.getItem('jwtToken'),
 				products: [],
 				orders: []
 			}

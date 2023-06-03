@@ -59,7 +59,7 @@ export default {
 	data() {
 	  return {
 
-		jwtToken: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpdmFud2hlZWxAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNjg1Njk4MDUyLCJpYXQiOjE2ODU2OTY4NTJ9.ODo9h-7CVyodo4Wc6DZSgxFgTJUT1gKSvzkP9hEiOsM',
+		jwtToken: localStorage.getItem('jwtToken'),
 		baseURL: 'http://45.9.73.210:8080/api/v1/',
 		cart: null,
 		images: [
