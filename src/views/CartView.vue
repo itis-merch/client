@@ -9,7 +9,7 @@
 						<div class="font-bold text-base float-right">${{ product.totalPrice }}</div>
 					</div>
 			</div>
-			<SGButton class="w-[20%] min-w-[100px] align-middle text-center absolute right-0 font-semibold">Checkout</SGButton>
+			<SGButton @click="checkout" :available="true" class="w-[20%] min-w-[100px] align-middle text-center absolute right-0 font-semibold">Checkout</SGButton>
 		</div>
 		<p class="text-base mt-5" v-else>You have no items in your cart. Continue shopping.</p>
 	</main>
@@ -20,6 +20,18 @@ import SGButton from '../components/SGButton.vue'
 import axios from 'axios'
   
 export default {
+		methods: {
+			checkout() {
+				axios.post(this.baseURL + 'cart/order', {phone_number: '+123456789'}, {
+					headers: {
+						"Content-Type": "application/json",
+          	"Authorization": 'Bearer ' + this.jwtToken
+					}
+				}).then((response) => {
+					console.log(response.data)
+				})
+			}
+		},
 		async mounted() {
 			try {
 			await axios.get(this.baseURL + "cart", {

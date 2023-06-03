@@ -13,7 +13,7 @@
         <label>Category description</label>
         <textarea class="p-[8px]" style="color: gray" v-model="description" />
       </div>
-      <SGButton @click="editCategory">Edit</SGButton>
+      <SGButton :available="true" @click="editCategory">Edit</SGButton>
     </form>
   </div>
 </template>

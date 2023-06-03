@@ -11,7 +11,7 @@
         <label>Category description</label>
         <input class="p-[8px]" style="color: gray" type="text" v-model="description" required>
       </div>
-      <SGButton @click="addCategory">Add</SGButton>
+      <SGButton :available="true" @click="addCategory">Add</SGButton>
     </form>
   </div>
 </template>

@@ -26,7 +26,7 @@
         <label>Product category ID</label>
         <input class="p-[8px]" style="color: gray" type="text" v-model="categoryID">
       </div>
-      <SGButton @click="editProduct">Edit</SGButton>
+      <SGButton :available="true" @click="editProduct">Edit</SGButton>
     </form>
   </div>
 </template>

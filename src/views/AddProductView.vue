@@ -32,7 +32,7 @@
         <input class="p-[8px]" style="color: gray" type="text" v-model="categoryId" required>
       </div>
 
-      <SGButton @click="addProduct">Add</SGButton>
+      <SGButton :available="true" @click="addProduct">Add</SGButton>
     </form>
   </div>
 </template>
