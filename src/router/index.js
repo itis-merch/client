@@ -36,17 +36,20 @@ const router = createRouter({
     {
       path: '/category/:id', 
       name: 'productCategoryPage',
-      component: CategoryView
+      component: CategoryView,
+      props: true
     },
     {
       path: '/cart',
       name: 'cart',
       component: CartView
     },
+    {
       path: '/orders',
       name: 'ordersPage',
       component: OrdersView
     },
+    {
       path: '/login',
       name: 'login',
       component: loginView

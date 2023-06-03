@@ -38,7 +38,7 @@ import SGSideBar from './components/SGSidebar.vue'
       <SGSideBar/>
     </div>
     <div class="content mt-52">
-      <RouterView/>
+      <RouterView :key="$route.path"/>
     </div>
     <div class="footer">
       <SGFooter/>

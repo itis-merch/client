@@ -14,10 +14,14 @@
         <li class="px-3 py-2 text-stone-800 hover:text-stone-900">
           <router-link to="/" href="#">Categories</router-link>
         </li>
-        <li class="px-3 py-2 text-stone-800 hover:text-stone-900 ml-5">
-          <router-link to="/" href="#">All products</router-link>
-        </li>
-        <li class="px-3 py-2 text-stone-800 hover:text-stone-900 ml-5">
+        <div  v-for="category in categories" :key="category.id">
+          <li class="px-3 py-2 text-stone-800 hover:text-stone-900 ml-5">
+            <router-link :to="{ name: 'productCategoryPage', params: { id: category.id } }">
+              {{ category.name }}
+            </router-link>
+          </li>
+        </div>
+        <!-- <li class="px-3 py-2 text-stone-800 hover:text-stone-900 ml-5">
           <router-link to="/" href="#">Hoodies</router-link>
         </li>
         <li class="px-3 py-2 text-stone-800 hover:text-stone-900 ml-5">
@@ -28,7 +32,7 @@
         </li>
         <li class="px-3 py-2 text-stone-800 hover:text-stone-900 ml-5">
           <router-link to="/" href="#">Stickers</router-link>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </div>
@@ -42,8 +46,21 @@
 </style>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'SideBar',
+  data() {
+    return {
+      categories: []
+    }
+  },
   components: {},
+  mounted() {
+    axios.get('http://45.9.73.210:8080/api/v1/categories')
+    .then((response) => {
+      this.categories = response.data
+    })
+  }
 }
 </script>

@@ -5,7 +5,9 @@
             <div class="text-justify py-5 text-base"> {{ description }}</div>
             <div class="products grid grid-cols-4 gap-[20px]">
                 <div class="product mt-5" v-for="product in products" v-bind:key="product">
-                    <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />
+                    <RouterLink :to="{ name: 'productPage', params: { id: product.id } }">
+                        <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -13,7 +15,6 @@
 </template>
 
 <script>
-import SGCarousel from '../components/SGCarousel.vue'
 import SGCard from '../components/SGCard.vue';
 import axios from 'axios';
 
@@ -136,7 +137,6 @@ export default {
         }
     },
     components: {
-        SGCarousel,
         SGCard
     }
 }
