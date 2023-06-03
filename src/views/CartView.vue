@@ -34,7 +34,9 @@ export default {
           text: "Your order was formed successfully!",
           icon: "success",
           closeOnClickOutside: true
-        })
+        }).then((v) => {
+										window.location.href = '/orders'
+									})
 				})
 			}
 		},

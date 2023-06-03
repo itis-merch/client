@@ -2,10 +2,12 @@
     <div class="flex flex-col max-w-[82%]">
         <SGCarousel :slides="images" class="mb-10 w-full"/>
         <div class="new-arrivals">
-            <h1 class="font-bold">New Arrivals</h1>
+            <h1 class="font-bold sg-logo-text text-2xl">New Arrivals</h1>
             <div class="products grid grid-cols-3 gap-[40px]">
                 <div class="product mt-5" v-for="product in products" v-bind:key="product">
+									<RouterLink :to="{ name: 'productPage', params: { id: product.id } }">
                     <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />
+									</RouterLink>
                 </div>
             </div>
         </div>

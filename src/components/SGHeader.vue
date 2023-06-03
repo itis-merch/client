@@ -34,7 +34,7 @@
               <!-- <button v-else @click="logOut">Log Out</button> -->
             </li>
             <li>
-              <router-link :to="{ name: 'cart' }" class="text-stone-950 sg-nav-link inline-flex justify-between"
+              <router-link :to="{ name: this.jwtToken == null ? 'login' : 'cart' }" class="text-stone-950 sg-nav-link inline-flex justify-between"
                 ><svg
                   class="mr-1"
                   width="20"
@@ -57,10 +57,20 @@
                 >Bag</router-link
               >
             </li>
-            <li><router-link :to="{ name: 'ordersPage' }" class="text-stone-950 sg-nav-link">Orders</router-link></li>
+            <li><router-link :to="{ name: this.jwtToken == null ? 'login' : 'ordersPage' }" class="text-stone-950 sg-nav-link">Orders</router-link></li>
           </ul>
         </nav>
       </div>
     </header>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      jwtToken: localStorage.getItem('jwtToken')
+    }
+  }
+}
+</script>

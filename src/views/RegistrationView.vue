@@ -40,7 +40,7 @@
 					pattern="\w{6,}"
 					required
 				>
-				<input type="submit" class="bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Register">
+				<input type="submit" class="sg-logo-text bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Register">
 			</form>
 		</div>
 		<div class="ml-44 mt-16">
@@ -100,7 +100,9 @@ export default {
 									text: 'You have been successfully registered!',
 									icon: "success",
 									closeOnClickOutside: true
-								})
+								}).then((v) => {
+										window.location.href = '/'
+									})
 					}).catch((error) => {
 						console.log(error.response.data)
 						swal({

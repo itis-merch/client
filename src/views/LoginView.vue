@@ -23,7 +23,7 @@
 								pattern="\w{6,}"
 								required
 				>
-				<input type="submit" class="bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Login">
+				<input type="submit" class="sg-logo-text bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Login">
 			</form>
 			<p class="mt-5">Don't have an account yet?</p>
 			<RouterLink class="text-yellow-400" :to="{ name: 'registration' }">Register now.</RouterLink>
@@ -92,9 +92,11 @@ export default {
 									localStorage.setItem("jwtToken", this.jwt_token)
 									localStorage.setItem("userEmail", this.email)
 									swal({
-										text: "Your order was formed successfully!",
+										text: "You have been logged in successfully!",
 										icon: "success",
 										closeOnClickOutside: true
+									}).then((v) => {
+										window.location.href = '/'
 									})
 								}
               }).catch((error) => {

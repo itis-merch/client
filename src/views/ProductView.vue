@@ -30,6 +30,10 @@ export default {
   },
   methods: {
     addToCart() {
+      if (localStorage.getItem("jwtToken") == null) {
+        window.location.href = '/login'
+        return
+      }
       console.log(this.jwtToken)
       const shoppingCartItem = {
         quantity: 1,
