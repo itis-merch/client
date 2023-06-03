@@ -25,6 +25,8 @@
 				>
 				<input type="submit" class="bg-yellow-300 hover:bg-yellow-400 active:bg-yellow-300 text-stone-900 py-2 px-6 transition duration-300 rounded" value="Login">
 			</form>
+			<p class="mt-5">Don't have an account yet?</p>
+			<RouterLink class="text-yellow-400" :to="{ name: 'registration' }">Register now.</RouterLink>
 		</div>
 		<div class="ml-44 mt-16">
 			<svg
@@ -58,8 +60,8 @@ export default {
         return {
 					baseUrl: 'http://45.9.73.210:8080/api/v1/',
 					login: false,
-					email: 'ivanwheel@gmail.com',
-					password: 'foobar',
+					email: '',
+					password: '',
 					jwt_token: ''
         }
     },

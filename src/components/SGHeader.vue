@@ -28,12 +28,13 @@
         <nav>
           <ul class="flex space-x-16">
             <li>
-              <router-link to="/" class="text-stone-950 sg-nav-link inline-flex mr-10"
+              <router-link :to="{ name: 'login' }" class="text-stone-950 sg-nav-link inline-flex mr-10"
                 >Log In</router-link
               >
+              <!-- <button v-else @click="logOut">Log Out</button> -->
             </li>
             <li>
-              <router-link to="/" class="text-stone-950 sg-nav-link inline-flex justify-between"
+              <router-link :to="{ name: 'cart' }" class="text-stone-950 sg-nav-link inline-flex justify-between"
                 ><svg
                   class="mr-1"
                   width="20"
@@ -56,7 +57,7 @@
                 >Bag</router-link
               >
             </li>
-            <li><router-link to="/orders" class="text-stone-950 sg-nav-link">Orders</router-link></li>
+            <li><router-link :to="{ name: 'ordersPage' }" class="text-stone-950 sg-nav-link">Orders</router-link></li>
           </ul>
         </nav>
       </div>
