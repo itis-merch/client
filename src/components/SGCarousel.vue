@@ -1,11 +1,7 @@
 <template>
 	<div class="carousel">
 		<div class="carousel-inner">
-			<SGCarouselIndicators
-					:total="slides.length"
-					:current-index="currentSlide"
-					@switch="switchSlide($event)"
-			></SGCarouselIndicators>
+			
 			<SGCarouselItem
 					v-for="(slide, index) in slides"
 					:slide="slide"
@@ -15,13 +11,18 @@
 					:direction="direction"
 			>
 			</SGCarouselItem>
+			<SGCarouselIndicators
+					:total="slides.length"
+					:current-index="currentSlide"
+					@switch="switchSlide($event)"
+			></SGCarouselIndicators>
 		</div>
 	</div>
 </template>
 
 <script>
-import SGCarouselItem from "@/components/SGCarouselItem.vue";
-import SGCarouselIndicators from "@/components/SGCarouselIndicators.vue";
+import SGCarouselItem from "./SGCarouselItem.vue";
+import SGCarouselIndicators from "./SGCarouselIndicators.vue";
 export default {
 	components: {
 		SGCarouselItem,
@@ -47,18 +48,18 @@ export default {
 		},
 		prev(step = -1) {
 			const index =
-				this.currentSlide > 0
-					? this.currentSlide + step
-					: this.slides.length - 1;
+					this.currentSlide > 0
+							? this.currentSlide + step
+							: this.slides.length - 1;
 			this.setCurrentSlide(index);
 			this.direction = "left";
 			this.startSlideTimer();
 		},
 		_next(step = 1) {
 			const index =
-				this.currentSlide < this.slides.length - 1
-					? this.currentSlide + step
-					: 0;
+					this.currentSlide < this.slides.length - 1
+							? this.currentSlide + step
+							: 0;
 			this.setCurrentSlide(index);
 			this.direction = "right";
 		},
@@ -100,8 +101,8 @@ export default {
 }
 .carousel-inner {
 	position: relative;
-	width: 500px;
-	height: 280px;
+	width: 100%;
+	height: 600px;
 	overflow: hidden;
 }
 </style>
