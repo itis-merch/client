@@ -1,5 +1,5 @@
 	<template>
-	<main class="max-w-[1200px] ml-16 mr-10 pb-12 min-h-[400px]">
+	<main class="max-w-[1200px] pb-12 min-h-[400px]">
 		<div class="text-2xl font-bold sg-logo-text">Your orders</div>
 		<div class="products pt-5 w-[80%]" v-if="orders.length > 0">
 				<div class="product w-full inline-table" v-for="order in orders" v-bind:key="order">
@@ -8,7 +8,7 @@
 					<div class="font-bold text-lg float-right">${{ order.price }}</div>
 				</div>
 		</div>
-		<p class="mt-4 text-base " v-else>You have no orders yet. Continue shopping.</p>
+		<p class="mt-5 text-base " v-else>You have no orders yet. Continue shopping.</p>
 	</main>
   </template>
   

@@ -1,34 +1,44 @@
 <template>
-  <div v-if="role==='ADMIN'">
-    <h1 class="sg-logo-text text-2xl">Admin panel</h1>
-    <div class="categories-panel">
-      <h4>Categories</h4>
+  <h1 class="sg-logo-text text-2xl mb-5">Admin panel</h1>
+  <div v-if="role==='ADMIN'" class="">
+    <div class="categories-panel mb-5">
+      <h4 class="font-bold text-lg">Categories</h4>
       <li v-for="category in categories" v-bind:key="category">
         <!-- {{ category.name }} -->
         <RouterLink class="text-lg" id="edit-category" :to="{ name: 'edit-category', params: {id: category.id} }">
           {{ category.name }}
         </RouterLink>
       </li>
+      <RouterLink :to="{ name: 'add-category' }">
+        <SGButton :available="true">Add category</SGButton>
+      </RouterLink>
     </div>
     <div class="products-panel">
-      <h4>Products</h4>
+      <h4 class="font-bold text-lg">Products</h4>
       <li v-for="product in products" v-bind:key="product">
         <!-- {{ category.name }} -->
         <RouterLink class="text-lg" id="edit-product" :to="{ name: 'edit-product', params: {id: product.id} }">
           {{ product.name }}
         </RouterLink>
       </li>
+      <RouterLink :to="{ name: 'add-product' }">
+        <SGButton :available="true">Add product</SGButton>
+      </RouterLink>
     </div>
   </div>
-  <div v-else>
-    <p>You do not have access to view this forum.</p>
+  <div v-else class="mb-5">
+    <p>You do not have access to view this page.</p>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import SGButton from "@/components/SGButton.vue";
 
 export default {
+  components: {
+    SGButton
+  },
   data() {
     return {
       baseUrl: 'http://45.9.73.210:8080/api/v1/',

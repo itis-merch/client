@@ -1,5 +1,5 @@
 <template>
-	<main class="max-w-[1200px] ml-16 mr-10 text pb-12 min-h-[400px]">
+	<main class="max-w-[1200px] text pb-12 min-h-[400px]">
 		<div class="text-2xl font-bold sg-logo-text">Your cart</div>
 		<div class="w-[80%]" v-if="products.length > 0">
 			<div class="products pt-5 pb-10">
@@ -18,6 +18,7 @@
 <script>
 import SGButton from '../components/SGButton.vue'
 import axios from 'axios'
+import swal from 'sweetalert'
   
 export default {
 		methods: {
@@ -29,6 +30,11 @@ export default {
 					}
 				}).then((response) => {
 					console.log(response.data)
+					swal({
+          text: "Your order was formed successfully!",
+          icon: "success",
+          closeOnClickOutside: true
+        })
 				})
 			}
 		},

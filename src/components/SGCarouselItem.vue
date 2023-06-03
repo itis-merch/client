@@ -32,11 +32,15 @@ export default {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	height: 800px;
+  width: 1200px;
+  overflow: hidden;
 }
 
 img {
-	width: auto;
-	height: 590px;
+	height: 100%;
+  width: auto;
+  object-fit: cover;
 }
 
 .slide-in-enter-active,

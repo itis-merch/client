@@ -1,13 +1,13 @@
 <template>
-  <main class="max-w-[1200px] p-4 flex ml-8">
+  <main class="max-w-[1200px] flex mb-10">
     <div class="w-[45%] relative">
       <img :src="images[0]" class="w-96" alt="">
     </div>
     <div class="w-[35%]">
       <div>
-        <h1 class="font-bold text-lg">{{ name }}</h1>
+        <h1 class="sg-logo-text text-2xl">{{ name }}</h1>
         <p class="mt-5">
-          <pre class="w-[500px] whitespace-pre-wrap text-justify">{{ description }}</pre>
+          <pre class="max-w-[100%] whitespace-pre-wrap text-justify">{{ description }}</pre>
         </p>
       </div>
       <div class="mt-5">
@@ -22,6 +22,7 @@
 <script>
 import axios from 'axios';
 import SGButton from '../components/SGButton.vue'
+import swal from 'sweetalert';
 
 export default {
   components: {
@@ -41,6 +42,11 @@ export default {
         }
       }).then((response) => {
         console.log(response)
+        swal({
+          text: "Product was added to your cart successfully!",
+          icon: "success",
+          closeOnClickOutside: true
+        })
       })
     }
   },

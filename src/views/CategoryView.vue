@@ -1,9 +1,9 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col mb-5 max-w-[82%]">
         <div class="new-arrivals">
-            <h1 class="font-bold text-lg">{{ name }}</h1>
-            <div class="text-justify py-5 text-base"> {{ description }}</div>
-            <div class="products grid grid-cols-4 gap-[20px]">
+            <h1 class="sg-logo-text text-2xl">{{ name }}</h1>
+            <div class="text-justify py-5 text-base max-w-[98%]"> {{ description }}</div>
+            <div class="products grid grid-cols-3 gap-[40px]">
                 <div class="product mt-5" v-for="product in products" v-bind:key="product">
                     <RouterLink :to="{ name: 'productPage', params: { id: product.id } }">
                         <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />

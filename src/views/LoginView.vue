@@ -1,5 +1,5 @@
 <template>
-	<div class="main ml-16 min-h-[400px]">
+	<div class="main min-h-[400px]">
 		<div>
 			<h1 class="sg-logo-text text-2xl">
 				Login
@@ -69,7 +69,7 @@ export default {
 			if (localStorage.getItem('login')) {
 				this.login = true
 				this.email = localStorage.getItem('userEmail')
-				this.jwt_token = localStorage.getItem('jwt_token')
+				this.jwt_token = localStorage.getItem('jwtToken')
 			}
 	},
 	methods: {

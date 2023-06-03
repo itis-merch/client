@@ -1,11 +1,7 @@
 <template>
 	<div class="carousel">
 		<div class="carousel-inner">
-			<SGCarouselIndicators
-					:total="slides.length"
-					:current-index="currentSlide"
-					@switch="switchSlide($event)"
-			></SGCarouselIndicators>
+			
 			<SGCarouselItem
 					v-for="(slide, index) in slides"
 					:slide="slide"
@@ -15,6 +11,11 @@
 					:direction="direction"
 			>
 			</SGCarouselItem>
+			<SGCarouselIndicators
+					:total="slides.length"
+					:current-index="currentSlide"
+					@switch="switchSlide($event)"
+			></SGCarouselIndicators>
 		</div>
 	</div>
 </template>

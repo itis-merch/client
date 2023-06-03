@@ -1,9 +1,9 @@
 <template>
-    <div class="flex flex-col">
-        <SGCarousel :slides="images" class="mb-10"/>
+    <div class="flex flex-col max-w-[82%]">
+        <SGCarousel :slides="images" class="mb-10 w-full"/>
         <div class="new-arrivals">
             <h1 class="font-bold">New Arrivals</h1>
-            <div class="products grid grid-cols-4 gap-[20px]">
+            <div class="products grid grid-cols-3 gap-[40px]">
                 <div class="product mt-5" v-for="product in products" v-bind:key="product">
                     <SGCard class="" :title="formatText(product.name, 18)" :description="formatText(product.description, 60)" :image="product.image_urls[0]" :price="product.price" />
                 </div>
@@ -48,9 +48,9 @@ export default {
 			products: [],
 			
 			images: [
-				'https://sun9-8.userapi.com/impg/l863UxfDxhpsUjNye_opPQWk2Dgs0TqybCQ3ag/scsDue1T0eM.jpg?size=1728x2160&quality=95&sign=96f9b74fe23728dbb1b6f9a995a4ab62&type=album',
-				'https://sun9-73.userapi.com/impg/CPoUZrhsTKEMMS2DX653XQdl_7zWmCgYlbzwdw/jqD0pd0_fRg.jpg?size=1458x1458&quality=95&sign=b926f376bca4db733d288d35a09a0b06&type=album',
-				'https://sun7-7.userapi.com/impg/83lhmRPgYPYC7uoKjJPu2QVjInbFr5pngNxz1w/GW435H0PdyE.jpg?size=1352x1352&quality=95&sign=6e394fb00eafcae2d8df871dcc46f249&type=album'
+				'https://sun9-50.userapi.com/impg/sJikmHJNXSdg5gImrwhJCtwpV5EhrizSMmtxsQ/j8QjCGV93C0.jpg?size=1733x1263&quality=95&sign=b7c715778bb1813a1d8e08aeda064ab4&type=album',
+				'https://sun9-32.userapi.com/impg/_RAUgMvuOglLajSPY1vl7I7OPq4DBeDnEeK06g/3V2qyu7ZpYA.jpg?size=1179x853&quality=95&sign=00c2d4bc5b15f8a5c1d9dc3709c41161&type=album',
+				'https://sun9-2.userapi.com/impg/E6Et7SqK0LPzCteZlZ_n8iJ9isgpivBoGVv3fg/GxrNZE-aqKE.jpg?size=1200x800&quality=95&sign=a0b346b87084715669e31f5b5d9797a7&type=album'
 			],
 			/*
 			products: [

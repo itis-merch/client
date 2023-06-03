@@ -1,5 +1,5 @@
 <template>
-	<div class="main ml-16 min-h-[400px]">
+	<div class="main min-h-[400px]">
 		<div>
 			<h1 class="sg-logo-text text-2xl">
 				Registration

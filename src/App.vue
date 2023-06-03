@@ -39,6 +39,10 @@ import SGSideBar from './components/SGSidebar.vue'
     </div>
     <div class="content mt-52">
       <RouterView :key="$route.path"/>
+      <!-- <div class="image-container">
+        <RouterView :key="$route.path"/>
+        <img src="src/assets/itismerchclothingbrand.png" alt="Vertical image">
+      </div> -->
     </div>
     <div class="footer">
       <SGFooter/>
@@ -48,6 +52,16 @@ import SGSideBar from './components/SGSidebar.vue'
 </template>
 
 <style scoped>
+.image-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container img {
+  /* width: 100px; Задайте ширину изображения в соответствии с вашими требованиями */
+}
+
+
 .container {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
