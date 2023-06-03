@@ -68,6 +68,7 @@
 <script>
 import SGButton from "@/components/SGButton.vue";
 import axios from "axios";
+import swal from 'sweetalert';
 
 export default {
   components: {SGButton},
@@ -95,7 +96,18 @@ export default {
 					}
 				})
 					.then(function (response) {
-            console.log(response.data);
+            swal({
+									text: 'You have been successfully registered!',
+									icon: "success",
+									closeOnClickOutside: true
+								})
+					}).catch((error) => {
+						console.log(error.response.data)
+						swal({
+									text: error.response.data.message,
+									icon: "error",
+									closeOnClickOutside: true
+								})
 					})
       } catch (error) {
         console.log(error);

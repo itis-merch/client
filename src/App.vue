@@ -47,6 +47,7 @@ import SGSideBar from './components/SGSidebar.vue'
     <div class="footer">
       <SGFooter/>
     </div>
+    <img src="@/assets/itismerchclothingbrand.png" alt="Vertical image">
   </main>
   <!--  </div>-->
 </template>
@@ -61,6 +62,12 @@ import SGSideBar from './components/SGSidebar.vue'
   /* width: 100px; Задайте ширину изображения в соответствии с вашими требованиями */
 }
 
+img {
+  overflow-x: hidden;
+  position: absolute;
+  right: -130px;
+  width: 300px;
+}
 
 .container {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;

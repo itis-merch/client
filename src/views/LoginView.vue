@@ -53,6 +53,7 @@
 <script>
 
 import axios from "axios";
+import swal from "sweetalert";
 
 export default {
     components: {},
@@ -90,8 +91,19 @@ export default {
 									localStorage.setItem("login", true)
 									localStorage.setItem("jwtToken", this.jwt_token)
 									localStorage.setItem("userEmail", this.email)
+									swal({
+										text: "Your order was formed successfully!",
+										icon: "success",
+										closeOnClickOutside: true
+									})
 								}
-              });
+              }).catch((error) => {
+								swal({
+									text: "You provided bad credentials!",
+									icon: "error",
+									closeOnClickOutside: true
+								})
+							});
 						console.log(this.jwt_token)
         }
     }
