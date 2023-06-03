@@ -1,9 +1,9 @@
 <script setup>
 defineProps({
-	image: String,
-	title: String,
-	price: String,
-	description: String
+    image: String,
+    title: String,
+    price: String,
+    description: String
 })
 </script>
 
@@ -23,5 +23,4 @@ defineProps({
 </template>
 
 <style scoped>
-
 </style>
