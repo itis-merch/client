@@ -4,7 +4,7 @@
 				class="carousel-item"
 				v-show="currentSlide === index"
 		>
-			<img :src="slide" alt="Photo"/>
+		<img :src="slide" alt="Photo"/>
 		</div>
 	</transition>
 </template>
@@ -35,7 +35,7 @@ export default {
 }
 
 img {
-	width: 100%;
+	width: auto;
 	height: 590px;
 }
 
